@@ -4,7 +4,7 @@ Acest repository este un template pentru tema de la Laboratorul 7 (Colecții și
 
 ## Ce conține template-ul
 
-- proiect Kotlin configurat cu Maven
+- proiect Kotlin configurat cu Gradle
 - schelete de cod pentru parse, model de date și funcții generice
 - teste unitare de bază
 - enunțul temei în fișierul `ASSIGNMENT.md`
@@ -24,13 +24,13 @@ cp history.sample.log history.log
 1. Rulează testele:
 
 ```bash
-mvn test
+gradle test
 ```
 
 2. Rulează aplicația:
 
 ```bash
-mvn exec:java
+gradle run
 ```
 
 ## GitHub Classroom

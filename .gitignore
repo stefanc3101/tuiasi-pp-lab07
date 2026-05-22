@@ -1,8 +1,10 @@
 .gradle/
 build/
-target/
-.idea/
 out/
-.venv/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+.idea/
 *.iml
-*.log
+*.ipr
+*.iws

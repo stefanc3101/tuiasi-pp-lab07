@@ -101,7 +101,7 @@ Demonstrează funcționalitatea:
 Proiectul include teste în `HistoryOpsTest.kt`. Rulează-le cu:
 
 ```bash
-./mvnw test
+gradle test
 ```
 
 Toate cele 3 teste trebuie să treacă:
