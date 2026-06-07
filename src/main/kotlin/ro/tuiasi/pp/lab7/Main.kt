@@ -10,14 +10,25 @@ fun main() {
         return
     }
 
-    // TODO: Parsează ultimele 50 de intrări din fișier folosind HistoryParser.parseLastEntries()
+    val records = HistoryParser.parseLastEntries(path, count = 50)
 
-    // TODO: Construiește HashMap-ul timestamp -> HistoryLogRecord folosind HistoryParser.toMutableMap()
+    val recordsMap = HistoryParser.toMutableMap(records)
 
-    // TODO: Afișează numărul de intrări parsate și numărul de elemente din map
+    println("Numar de inregistrari parsate: ${records.size}")
+    println("Numar de elemente salvate in map: ${recordsMap.size}")
 
-    // TODO: Dacă există cel puțin două înregistrări, folosește GenericOps.maxOfTwo()
-    //       pentru a determina cea mai recentă dintre primele două și afișeaz-o
+    if (records.size >= 2) {
+        val mostRecent = GenericOps.maxOfTwo(records[0], records[1])
+        println("\nCea mai recenta dintre primele doua inregistrari este:")
+        println("Timestamp: ${mostRecent.timestamp} | Comanda: ${mostRecent.commandLine}")
+    }
 
-    // TODO (opțional): Testează GenericOps.searchAndReplace() pe map-ul creat
+    if (records.isNotEmpty()) {
+        // Preluam o valoare la intamplare si incercam sa o gasim si sa o modificam cu alta direct din map
+        val target = records[0]
+        val replacement = target.copy(commandLine = target.commandLine + " [INLOCUIT CU SUCCES]")
+
+        val count = GenericOps.searchAndReplace(target, replacement, recordsMap)
+        println("\nAu fost inlocuite $count valori cu succes folosind proiecția generică `out`.")
+    }
 }
